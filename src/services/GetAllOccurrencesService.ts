@@ -1,10 +1,11 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import Occurrence from '../interfaces/Occurrence';
+import { prismaClient } from '../prisma';
 
 class GetAllOccurrencesService {
     async execute() {
-        const occurrences = await prisma.occurrences.findMany();
+        await prismaClient.$connect;
+        const occurrences = await prismaClient.occurrences.findMany();
+        await prismaClient.$disconnect;
         return occurrences;
     }
 }

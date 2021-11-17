@@ -1,17 +1,13 @@
-import { PrismaClient } from '@prisma/client';
+import { prismaClient } from '../prisma';
+import Occurrence from '../interfaces/Occurrence'
 
-const prisma = new PrismaClient();
-
-interface Occurrence {
-    name: string
-}
 class CreateOccurenceService {
     async execute(occurrence: Occurrence) {
-        await prisma.$connect;
-        await prisma.occurrences.create({
+        await prismaClient.$connect;
+        await prismaClient.occurrences.create({
             data: occurrence,
         })
-        await prisma.$disconnect;
+        await prismaClient.$disconnect;
     }
 }
 
