@@ -1,4 +1,4 @@
-import Occurrence from '../interfaces/Occurrence';
+import Occurrence from '../interfaces/occurrence';
 import { prismaClient } from '../prisma';
 
 class GetAllOccurrencesService {

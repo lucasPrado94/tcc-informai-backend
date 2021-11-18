@@ -1,5 +1,5 @@
 import { prismaClient } from '../prisma';
-import Occurrence from '../interfaces/Occurrence'
+import Occurrence from '../interfaces/occurrence'
 
 class CreateOccurenceService {
     async execute(occurrence: Occurrence) {
