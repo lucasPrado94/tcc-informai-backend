@@ -2,16 +2,19 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Occurrences {
-  id       String    @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  name String
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name String @db.VarChar(80)
+  latitude Float @db.DoublePrecision
+  longitude Float @db.DoublePrecision
+  obs String @db.VarChar(280)
 }
