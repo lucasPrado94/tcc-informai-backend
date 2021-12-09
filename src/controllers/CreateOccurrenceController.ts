@@ -8,8 +8,10 @@ class CreateOccurrenceController {
 
         const service = new CreateOccurenceService();
 
-        const result = await service.execute(occurrence);
-
+        const result = await service.execute(occurrence).catch((e) => {
+            return response.status(500).send('Something went wrong');
+        });
+        
         return response.json(result);
     }
 }

@@ -13,8 +13,9 @@ datasource db {
 model Occurrences {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  name String @db.VarChar(80)
+  name String? @db.VarChar(80)
   latitude Float @db.DoublePrecision
   longitude Float @db.DoublePrecision
-  obs String @db.VarChar(280)
+  obs String? @db.VarChar(280)
+  type Int @default(0)
 }
