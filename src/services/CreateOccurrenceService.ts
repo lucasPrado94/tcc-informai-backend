@@ -9,7 +9,7 @@ class CreateOccurenceService {
         const occurrenceCreated = await prismaClient.occurrences.create({
             data: {
                 name: occurrence.name,
-                type: Number(occurrence.type),
+                typeId: Number(occurrence.type),
                 obs: occurrence.obs,
                 latitude: Number(occurrence.latitude),
                 longitude: Number(occurrence.longitude)

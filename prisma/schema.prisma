@@ -17,5 +17,12 @@ model Occurrences {
   latitude Float @db.DoublePrecision
   longitude Float @db.DoublePrecision
   obs String? @db.VarChar(280)
-  type Int @default(0)
+  typeId Int
+  type Types @relation(fields: [typeId], references: [id])
+}
+
+model Types {
+  id Int @id @default(autoincrement())
+  typeName String
+  occurrences Occurrences[]
 }
