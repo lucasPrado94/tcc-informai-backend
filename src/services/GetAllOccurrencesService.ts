@@ -4,7 +4,13 @@ class GetAllOccurrencesService {
     async execute() {
 
         await prismaClient.$connect;
-        const occurrences = await prismaClient.occurrences.findMany();
+        const occurrences = await prismaClient.occurrences.findMany(
+            { 
+                include: {
+                    type: true,
+                } 
+            }
+        );
         await prismaClient.$disconnect;
         return occurrences;
     }
