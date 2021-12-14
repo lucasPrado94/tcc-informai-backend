@@ -1,5 +1,6 @@
 interface Occurrence {
     id?: string,
+    createdAt?: string,
     name: string,
     typeId: number,
     obs: string,

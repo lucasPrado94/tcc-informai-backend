@@ -8,6 +8,7 @@ class GetAllOccurrencesService {
             { 
                 include: {
                     type: true,
+                    images: true,
                 } 
             }
         );

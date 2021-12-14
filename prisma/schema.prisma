@@ -30,7 +30,7 @@ model Types {
 
 model Images {
   id Int @id @default(autoincrement())
-  path String? @db.VarChar(80)
+  fileName String? @db.VarChar(80)
   occurrenceId Int
   occurrence Occurrences @relation(fields: [occurrenceId], references: [id])
 }
