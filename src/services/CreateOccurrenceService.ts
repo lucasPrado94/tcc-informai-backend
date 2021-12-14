@@ -1,22 +1,34 @@
 import Occurrence from '../interfaces/occurrence';
 import prismaClient from '../prisma';
-import { Prisma } from '@prisma/client';
 
 class CreateOccurenceService {
-    async execute(occurrence: Occurrence) {
+    async execute(occurrence: Occurrence, files: Express.Multer.File[]) {
         await prismaClient.$connect;
+        
+        const images = files.map(image => {
+            return {
+                path: image.filename,
+            }
+        })
 
         const occurrenceCreated = await prismaClient.occurrences.create({
             data: {
                 name: occurrence.name,
-                typeId: Number(occurrence.type),
+                typeId: Number(occurrence.typeId),
                 obs: occurrence.obs,
                 latitude: Number(occurrence.latitude),
-                longitude: Number(occurrence.longitude)
+                longitude: Number(occurrence.longitude),
+                images: {
+                    create: images
+                }
             },
+            include: {
+                images: true,
+                type: true,
+            }
         }).catch((error) => {
             throw error;
-        })
+        });
 
         await prismaClient.$disconnect;
 

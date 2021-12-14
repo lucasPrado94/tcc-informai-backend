@@ -1,7 +1,7 @@
 interface Occurrence {
     id?: string,
     name: string,
-    type: number,
+    typeId: number,
     obs: string,
     latitude: number,
     longitude: number

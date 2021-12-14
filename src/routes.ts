@@ -3,11 +3,12 @@ import { CreateOccurrenceController } from './controllers/CreateOccurrenceContro
 import { GetAllOccurrencesController } from './controllers/GetAllOccurrencesController';
 import { GetAllTypesController } from './controllers/GetAllTypesController';
 import multer from 'multer';
+import uploadConfig from './config/upload';
 
 const router = Router();
-const upload = multer();
+const upload = multer(uploadConfig);
 
-router.post('/occurrences/create', upload.none(), new CreateOccurrenceController().handle);
+router.post('/occurrences/create', upload.array('images'), new CreateOccurrenceController().handle);
 router.get('/occurrences/all', new GetAllOccurrencesController().handle);
 router.get('/types/all', new GetAllTypesController().handle);
 

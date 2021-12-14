@@ -19,10 +19,18 @@ model Occurrences {
   obs String? @db.VarChar(280)
   typeId Int
   type Types @relation(fields: [typeId], references: [id])
+  images Images[]
 }
 
 model Types {
   id Int @id @default(autoincrement())
   typeName String
   occurrences Occurrences[]
+}
+
+model Images {
+  id Int @id @default(autoincrement())
+  path String? @db.VarChar(80)
+  occurrenceId Int
+  occurrence Occurrences @relation(fields: [occurrenceId], references: [id])
 }
