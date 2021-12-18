@@ -14,7 +14,7 @@ class CreateOccurenceService {
         const occurrenceCreated = await prismaClient.occurrences.create({
             data: {
                 name: occurrence.name,
-                typeId: Number(occurrence.typeId),
+                serviceId: Number(occurrence.serviceId),
                 obs: occurrence.obs,
                 latitude: Number(occurrence.latitude),
                 longitude: Number(occurrence.longitude),
@@ -24,7 +24,7 @@ class CreateOccurenceService {
             },
             include: {
                 images: true,
-                type: true,
+                service: true,
             }
         }).catch((error) => {
             throw error;

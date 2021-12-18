@@ -2,7 +2,7 @@ interface Occurrence {
     id?: string,
     createdAt?: string,
     name: string,
-    typeId: number,
+    serviceId: number,
     obs: string,
     latitude: number,
     longitude: number

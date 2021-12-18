@@ -1,7 +1,7 @@
 import Router from 'express';
 import { CreateOccurrenceController } from './controllers/CreateOccurrenceController';
 import { GetAllOccurrencesController } from './controllers/GetAllOccurrencesController';
-import { GetAllTypesController } from './controllers/GetAllTypesController';
+import { GetAllServicesController } from './controllers/GetAllServicesController';
 import multer from 'multer';
 import uploadConfig from './config/upload';
 
@@ -10,6 +10,6 @@ const upload = multer(uploadConfig);
 
 router.post('/occurrences/create', upload.array('images'), new CreateOccurrenceController().handle);
 router.get('/occurrences/all', new GetAllOccurrencesController().handle);
-router.get('/types/all', new GetAllTypesController().handle);
+router.get('/services/all', new GetAllServicesController().handle);
 
 export default router;

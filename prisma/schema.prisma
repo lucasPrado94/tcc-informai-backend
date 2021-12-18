@@ -17,14 +17,14 @@ model Occurrences {
   latitude Float @db.DoublePrecision
   longitude Float @db.DoublePrecision
   obs String? @db.VarChar(280)
-  typeId Int
-  type Types @relation(fields: [typeId], references: [id])
+  serviceId Int
+  service Services @relation(fields: [serviceId], references: [id])
   images Images[]
 }
 
-model Types {
+model Services {
   id Int @id @default(autoincrement())
-  typeName String
+  serviceName String
   occurrences Occurrences[]
 }
 

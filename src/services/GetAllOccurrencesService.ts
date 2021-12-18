@@ -7,7 +7,7 @@ class GetAllOccurrencesService {
         const occurrences = await prismaClient.occurrences.findMany(
             { 
                 include: {
-                    type: true,
+                    service: true,
                     images: true,
                 } 
             }

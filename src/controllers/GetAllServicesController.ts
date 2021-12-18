@@ -1,9 +1,9 @@
 import { Request, Response } from  'express';
-import { GetAllTypesService } from '../services/GetAllTypesService';
+import { GetAllServicesService } from '../services/GetAllServicesService';
 
-class GetAllTypesController {
+class GetAllServicesController {
     async handle(request: Request, response: Response) {
-        const service = new GetAllTypesService();
+        const service = new GetAllServicesService();
 
         const result = await service.execute();
 
@@ -11,4 +11,4 @@ class GetAllTypesController {
     }
 }
 
-export { GetAllTypesController }
+export { GetAllServicesController }
