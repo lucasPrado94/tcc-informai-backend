@@ -1,3 +1,4 @@
+import { statusAberta } from '../enums/status';
 import Occurrence from '../interfaces/occurrence';
 import prismaClient from '../prisma';
 
@@ -18,6 +19,7 @@ class CreateOccurenceService {
                 obs: occurrence.obs,
                 latitude: Number(occurrence.latitude),
                 longitude: Number(occurrence.longitude),
+                status: statusAberta,
                 images: {
                     create: images
                 }

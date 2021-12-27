@@ -13,24 +13,25 @@ datasource db {
 model Occurrences {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  name String? @db.VarChar(80)
-  latitude Float @db.DoublePrecision
-  longitude Float @db.DoublePrecision
-  obs String? @db.VarChar(280)
+  name      String?  @db.VarChar(80)
+  latitude  Float    @db.DoublePrecision
+  longitude Float    @db.DoublePrecision
+  obs       String?  @db.VarChar(280)
   serviceId Int
-  service Services @relation(fields: [serviceId], references: [id])
-  images Images[]
+  service   Services @relation(fields: [serviceId], references: [id])
+  status  Int
+  images    Images[]
 }
 
 model Services {
-  id Int @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   serviceName String
   occurrences Occurrences[]
 }
 
 model Images {
-  id Int @id @default(autoincrement())
-  fileName String? @db.VarChar(80)
+  id           Int         @id @default(autoincrement())
+  fileName     String?     @db.VarChar(80)
   occurrenceId Int
-  occurrence Occurrences @relation(fields: [occurrenceId], references: [id])
+  occurrence   Occurrences @relation(fields: [occurrenceId], references: [id])
 }
