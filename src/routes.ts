@@ -1,4 +1,5 @@
 import Router from 'express';
+import Cors from 'cors';
 import { CreateOccurrenceController } from './controllers/CreateOccurrenceController';
 import { GetAllOccurrencesController } from './controllers/GetAllOccurrencesController';
 import { GetOccurrenceDetails } from './controllers/GetOccurrenceDetailsController';
@@ -8,6 +9,10 @@ import uploadConfig from './config/upload';
 
 const router = Router();
 const upload = multer(uploadConfig);
+
+router.use(Cors({
+    origin: '*'
+}))
 
 router.post('/occurrences/create', upload.array('images'), new CreateOccurrenceController().handle);
 router.get('/occurrences/all', new GetAllOccurrencesController().handle);
