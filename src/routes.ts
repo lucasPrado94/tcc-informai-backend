@@ -4,6 +4,7 @@ import { CreateOccurrenceController } from './controllers/CreateOccurrenceContro
 import { GetAllOccurrencesController } from './controllers/GetAllOccurrencesController';
 import { GetOccurrenceDetails } from './controllers/GetOccurrenceDetailsController';
 import { GetAllServicesController } from './controllers/GetAllServicesController';
+import { GetOccurrencesByStatusController } from './controllers/GetOccurrencesByStatusController';
 import multer from 'multer';
 import uploadConfig from './config/upload';
 
@@ -11,11 +12,13 @@ const router = Router();
 const upload = multer(uploadConfig);
 
 router.use(Cors({
-    origin: '*'
+    origin: '*',
+    credentials: true
 }))
 
 router.post('/occurrences/create', upload.array('images'), new CreateOccurrenceController().handle);
 router.get('/occurrences/all', new GetAllOccurrencesController().handle);
+router.get('/occurrences/all/:status', new GetOccurrencesByStatusController().handle);
 router.get('/occurrences/:id', new GetOccurrenceDetails().handle);
 router.get('/services/all', new GetAllServicesController().handle);
 
