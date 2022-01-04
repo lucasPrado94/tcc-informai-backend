@@ -9,6 +9,9 @@ class GetAllOccurrencesService {
                 include: {
                     service: true,
                     images: true,
+                },
+                orderBy: {
+                    createdAt: 'asc',
                 } 
             }
         );

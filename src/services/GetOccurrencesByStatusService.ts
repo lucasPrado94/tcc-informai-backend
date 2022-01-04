@@ -12,6 +12,9 @@ class GetOccurrencesByStatusService {
                 },
                 where: {
                     status: status
+                },
+                orderBy: {
+                    createdAt: 'asc',
                 } 
             }
         );
