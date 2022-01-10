@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { GetOccurrenceDetailsService } from '../services/GetOccurrenceDetailsService';
 
-class GetOccurrenceDetails {
+class GetOccurrenceDetailsController {
     async handle(request: Request, response: Response) {
         const { id } = request.params;
 
@@ -13,4 +13,4 @@ class GetOccurrenceDetails {
     }
 }
 
-export { GetOccurrenceDetails }
+export { GetOccurrenceDetailsController }
