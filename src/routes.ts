@@ -2,10 +2,11 @@ import Router from 'express';
 import Cors from 'cors';
 import { CreateOccurrenceController } from './controllers/CreateOccurrenceController';
 import { GetAllOccurrencesController } from './controllers/GetAllOccurrencesController';
-import { GetOccurrenceDetails } from './controllers/GetOccurrenceDetailsController';
+import { GetOccurrenceDetailsController } from './controllers/GetOccurrenceDetailsController';
 import { GetAllServicesController } from './controllers/GetAllServicesController';
 import { GetOccurrencesByStatusController } from './controllers/GetOccurrencesByStatusController';
 import { UpdateOccurrenceStatusController } from './controllers/UpdateOccurrenceStatusController';
+import { GetOccurrencesCountGroupByServicesController } from './controllers/GetOccurrencesCountGroupByServicesController';
 
 import multer from 'multer';
 import uploadConfig from './config/upload';
@@ -21,8 +22,9 @@ router.use(Cors({
 router.post('/occurrences/create', upload.array('images'), new CreateOccurrenceController().handle);
 router.get('/occurrences/all', new GetAllOccurrencesController().handle);
 router.get('/occurrences/all/:status', new GetOccurrencesByStatusController().handle);
-router.get('/occurrences/:id', new GetOccurrenceDetails().handle);
+router.get('/occurrences/:id', new GetOccurrenceDetailsController().handle);
 router.patch('/occurrences/update', upload.none(), new UpdateOccurrenceStatusController().handle);
+router.get('/occurrences/all/count/groupByServices', new GetOccurrencesCountGroupByServicesController().handle);
 router.get('/services/all', new GetAllServicesController().handle);
 
 
