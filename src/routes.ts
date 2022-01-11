@@ -7,6 +7,7 @@ import { GetAllServicesController } from './controllers/GetAllServicesController
 import { GetOccurrencesByStatusController } from './controllers/GetOccurrencesByStatusController';
 import { UpdateOccurrenceStatusController } from './controllers/UpdateOccurrenceStatusController';
 import { GetOccurrencesCountGroupByServicesController } from './controllers/GetOccurrencesCountGroupByServicesController';
+import { GetOccurrencesCountGroupByStatusController } from './controllers/GetOccurrencesCountGroupByStatusController';
 
 import multer from 'multer';
 import uploadConfig from './config/upload';
@@ -25,6 +26,7 @@ router.get('/occurrences/all/:status', new GetOccurrencesByStatusController().ha
 router.get('/occurrences/:id', new GetOccurrenceDetailsController().handle);
 router.patch('/occurrences/update', upload.none(), new UpdateOccurrenceStatusController().handle);
 router.get('/occurrences/all/count/groupByServices', new GetOccurrencesCountGroupByServicesController().handle);
+router.get('/occurrences/all/count/groupByStatus', new GetOccurrencesCountGroupByStatusController().handle);
 router.get('/services/all', new GetAllServicesController().handle);
 
 
