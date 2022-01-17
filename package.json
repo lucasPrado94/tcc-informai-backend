@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "tsc",
-    "start": "node src/server.js"
+    "start": "node dist/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -24,5 +24,16 @@
     "prisma": "^3.6.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
-  }
+  },
+  "description": "Backend desenvolvido em Node.js para meu TCC InformAí. InformAí é um aplicativo mobile onde cidadãos podem obrir ocorrências para informar a administração pública sobre problemas urbanos (buraco na via, lâmpada queimada, etc.)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasPrado94/tcc-informai-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/lucasPrado94/tcc-informai-backend/issues"
+  },
+  "homepage": "https://github.com/lucasPrado94/tcc-informai-backend#readme"
 }
