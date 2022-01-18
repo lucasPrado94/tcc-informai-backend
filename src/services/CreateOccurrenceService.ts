@@ -2,15 +2,19 @@ import { statusAberta } from '../enums/status';
 import Occurrence from '../interfaces/occurrence';
 import prismaClient from '../prisma';
 
-class CreateOccurenceService {
-    async execute(occurrence: Occurrence, files: Express.Multer.File[]) {
-        await prismaClient.$connect;
+export interface ImageProp{
+    key: string
+}
 
+class CreateOccurenceService {
+    async execute(occurrence: Occurrence, files: ImageProp[]) {
         const images = files.map(image => {
             return {
-                fileName: image.destination,
+                fileName: image.key,
             }
         })
+
+        await prismaClient.$connect;
 
         const occurrenceCreated = await prismaClient.occurrences.create({
             data: {

@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { CreateOccurenceService } from "../services/CreateOccurrenceService";
+import { CreateOccurenceService, ImageProp } from "../services/CreateOccurrenceService";
 
 class CreateOccurrenceController {
     async handle(request: Request, response: Response) {
         const occurrence = request.body;
-        const files = <Express.Multer.File[]>request.files;
+        const files: any = <Express.Multer.File[]>request.files;
 
         const service = new CreateOccurenceService();
 
