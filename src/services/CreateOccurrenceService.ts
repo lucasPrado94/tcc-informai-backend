@@ -5,10 +5,10 @@ import prismaClient from '../prisma';
 class CreateOccurenceService {
     async execute(occurrence: Occurrence, files: Express.Multer.File[]) {
         await prismaClient.$connect;
-        
+
         const images = files.map(image => {
             return {
-                fileName: image.filename,
+                fileName: image.key,
             }
         })
 
