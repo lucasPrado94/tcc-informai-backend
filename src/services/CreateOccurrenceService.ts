@@ -8,7 +8,7 @@ class CreateOccurenceService {
 
         const images = files.map(image => {
             return {
-                fileName: image.key,
+                fileName: image.filename,
             }
         })
 
