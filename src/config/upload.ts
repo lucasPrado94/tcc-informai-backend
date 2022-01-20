@@ -6,7 +6,7 @@ import multerS3 from 'multer-s3'
 export default {
     dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'),
     limits: {
-        fileSize: 5 * 1024 * 1024
+        fileSize: 2 * 1024 * 1024
     },
     storage: multerS3({
         s3: new aws.S3({
