@@ -11,7 +11,7 @@ class GetAllOccurrencesService {
                     images: true,
                 },
                 orderBy: {
-                    createdAt: 'asc',
+                    createdAt: 'desc',
                 } 
             }
         );

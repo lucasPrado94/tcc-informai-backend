@@ -14,7 +14,7 @@ class GetOccurrencesByStatusService {
                     status: status
                 },
                 orderBy: {
-                    createdAt: 'asc',
+                    createdAt: 'desc',
                 } 
             }
         );
